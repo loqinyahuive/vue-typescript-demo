@@ -25,7 +25,7 @@
       </gl-component>
       <gl-stack>
         <gl-component title="List" :height="height">
-          <List />
+          <Pyramid />
         </gl-component>
       </gl-stack>
     </gl-col>
@@ -34,7 +34,7 @@
 
 <script>
 import Vue from "vue";
-import List from './list.vue'
+import Pyramid from './pyramid.vue'
 import Metrice from './metrice.vue'
 export default Vue.extend({
   data () {
@@ -42,7 +42,7 @@ export default Vue.extend({
       height: 30
     }
   },
-  components: { List, Metrice }
+  components: { Pyramid, Metrice }
 })
 </script>
 
