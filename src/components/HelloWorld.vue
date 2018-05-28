@@ -2,26 +2,11 @@
   <layout-golden class="screen">
     <gl-col>
       <gl-component title="Alert" :height="height">
-        <v-flex>
-          <v-alert :value="true" type="success">
-            This is a success alert.
-          </v-alert>
-
-          <v-alert :value="true" type="info">
-            This is a info alert.
-          </v-alert>
-
-          <v-alert :value="true" type="warning">
-            This is a warning alert.
-          </v-alert>
-
-          <v-alert :value="true" type="error">
-            This is a error alert.
-          </v-alert>
-        </v-flex>
+        <!-- <HPyramid /> -->
+        <highcharts-component :options="stockOptions" :styles="styles"></highcharts-component>
       </gl-component>
       <gl-component title="Metrice" :height="height">
-        <Metrice />
+        <!-- <Metrice /> -->
       </gl-component>
       <gl-stack>
         <gl-component title="List" :height="height">
@@ -35,14 +20,53 @@
 <script>
 import Vue from "vue";
 import List from './list.vue'
-import Metrice from './metrice.vue'
+// import HPyramid from './h_pyramid.vue'
+import highchartsComponent from './hightCharts.vue'
 export default Vue.extend({
   data () {
     return {
-      height: 30
+      height: 30,
+      styles: {'height': 300, 'width': 650},
+      stockOptions: {
+				chart: {
+						type: 'pyramid',
+						marginRight: 100
+				},
+				title: {
+						text: 'Sales pyramid',
+						x: -50
+				},
+				plotOptions: {
+						series: {
+								reversed: true,
+								dataLabels: {
+										enabled: true,
+										format: '<b>{point.name}</b> ({point.y:,.0f})',
+										color: 'white',
+										softConnector: true
+								}
+						}
+				},
+				legend: {
+						enabled: false
+				},
+				series: [{
+						name: 'Unique users',
+						data: [
+								['Website visits',   10],
+								['Downloads',       9],
+								['Requested price list', 8],
+								['Invoice sent',    0],
+								['Finalized',    0]
+						]
+				}],
+        credits: {
+          enabled: false
+        }
+		}
     }
   },
-  components: { List, Metrice }
+  components: { List, highchartsComponent }
 })
 </script>
 

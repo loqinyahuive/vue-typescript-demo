@@ -68,53 +68,6 @@ table th,table td{
   margin-top: 20px;
 }
 </style>
-<script>
-import axios from 'axios';
-export default {
-  data () {
-    return {
-      headers: [
-        {
-          text: 'Name',
-          align: 'left',
-          sortable: false,
-          value: 'name',
-          class:'backStyle'
-        },
-        { text: 'Day', align: 'right', sortable: false, class:'backStyle' },
-        { text: 'Month', align: 'right', sortable: false, class:'backStyle' },
-        { text: 'Year', align: 'right', sortable: false, class:'backStyle' },
-        { text: 'All', align: 'right', sortable: false, class:'backStyle' }
-      ],
-      items: []
-    };
-  },
-  mounted() {
-      this.getAccountId();
-    },
-  methods: {
-    getAccountId() {
-      const that = this;
-      let header = {
-        'Content-Type': 'application/json'
-      }
-      let data = {
-        sessionId: this.$route.query.sessionId
-      }
-      axios.post('https://hermes-dev.warriortrading.com:7020/getAccountId',data,{
-        headers:{
-        'Content-Type': 'application/json'
-        }
-      })
-        .then(function (response) {
-          that.items = response.data;
-        })
-        .catch(function (error) {
-        })
-    }
-  }
-}
-</script>
 <script lang="ts">
 import Vue from "vue";
 import axios from 'axios';
