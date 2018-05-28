@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-flex id="pyramid" style="width: 600px;height:400px;"></v-flex>
+    <v-flex id="pyramid1" style="width: 600px;height:400px;"></v-flex>
   </div>
 </template>
 <script lang="ts">
@@ -90,7 +90,7 @@ export default Vue.extend({
     }
   },
   mounted () {
-    this.chart = echarts.init(document.getElementById('pyramid'));
+    this.chart = echarts.init(document.getElementById('pyramid1'));
     this.drawPyramid(this.chart);
   },
 });

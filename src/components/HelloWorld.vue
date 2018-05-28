@@ -2,23 +2,7 @@
   <layout-golden class="screen">
     <gl-col>
       <gl-component title="Alert" :height="height">
-        <v-flex>
-          <v-alert :value="true" type="success">
-            This is a success alert.
-          </v-alert>
-
-          <v-alert :value="true" type="info">
-            This is a info alert.
-          </v-alert>
-
-          <v-alert :value="true" type="warning">
-            This is a warning alert.
-          </v-alert>
-
-          <v-alert :value="true" type="error">
-            This is a error alert.
-          </v-alert>
-        </v-flex>
+        <PyramidChartsComponent />
       </gl-component>
       <gl-component title="Metrice" :height="height">
         <Metrice />
@@ -35,6 +19,7 @@
 <script>
 import Vue from "vue";
 import Pyramid from './pyramid.vue'
+import PyramidChartsComponent from './pyramidChartsComponent.vue'
 import Metrice from './metrice.vue'
 export default Vue.extend({
   data () {
@@ -42,7 +27,9 @@ export default Vue.extend({
       height: 30
     }
   },
-  components: { Pyramid, Metrice }
+  components: { Pyramid, Metrice, PyramidChartsComponent },
+  mounted () {
+  }
 })
 </script>
 
